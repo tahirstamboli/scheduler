@@ -37,7 +37,7 @@ public class SchedulerImpl implements Scheduler {
 	/**
 	 * {@inheritDoc}
 	 */
-	public String getScheulerName() throws SchedulerException {
+	public String getSchedulerName() throws SchedulerException {
 		return this.scheduler.getSchedulerName();
 	}
 

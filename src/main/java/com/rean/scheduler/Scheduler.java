@@ -35,7 +35,7 @@ public interface Scheduler {
 	 * @return
 	 * @throws SchedulerException
 	 */
-	public String getScheulerName() throws SchedulerException;
+	public String getSchedulerName() throws SchedulerException;
 
 	/**
 	 * Starts the <code>Scheduler</code>'s threads that fire
