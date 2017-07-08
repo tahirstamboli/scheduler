@@ -1,5 +1,7 @@
 package com.rean.scheduler.model;
 
+import java.util.Date;
+
 /**
  * Class represents daily recurrence data.
  * 
@@ -8,17 +10,24 @@ package com.rean.scheduler.model;
  */
 public class DailyRecurrence extends RecurrenceData {
 	private int everyNDays;
-	
-	public DailyRecurrence(){
+
+	public DailyRecurrence() {
 		super(RecurrenceType.Daily);
+	}
+
+	public DailyRecurrence(RecurrenceType type, boolean startNow, Date startAt,
+			boolean neverEnd, int endAfterNOccurrences, Date endOn,
+			int everyNDays) {
+		super(type, startNow, startAt, neverEnd, endAfterNOccurrences, endOn);
+		this.everyNDays = everyNDays;
+	}
+
+	public static DailyRecurrenceBuilder builder() {
+		return new DailyRecurrenceBuilder();
 	}
 
 	public int getEveryNDays() {
 		return everyNDays;
-	}
-
-	public void setEveryNDays(int everyNDays) {
-		this.everyNDays = everyNDays;
 	}
 
 	@Override
@@ -30,6 +39,33 @@ public class DailyRecurrence extends RecurrenceData {
 				+ getEndAfterNOccurrences() + ", getEndOn()=" + getEndOn()
 				+ "]";
 	}
-	
-	
+
+	/**
+	 * 
+	 * Builder class
+	 *
+	 */
+	public static class DailyRecurrenceBuilder extends
+			Builder<DailyRecurrenceBuilder> {
+		protected int everyNDays;
+
+		protected DailyRecurrenceBuilder() {
+			super(DailyRecurrenceBuilder.class);
+			this.type = RecurrenceType.Daily;
+		}
+
+		public DailyRecurrenceBuilder everyNDays(int everyNDays) {
+			this.everyNDays = everyNDays;
+			return this;
+
+		}
+
+		public DailyRecurrence build() {
+			return new DailyRecurrence(this.type, this.startNow, this.startAt,
+					this.neverEnd, this.endAfterNOccurrences, this.endOn,
+					this.everyNDays);
+		}
+
+	}
+
 }
