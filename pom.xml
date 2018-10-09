@@ -4,7 +4,7 @@
 
 	<groupId>com.rean</groupId>
 	<artifactId>scheduler</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>scheduler</name>
@@ -32,4 +32,13 @@
 			<version>2.2.1</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.10.0</version>
+			</plugin>
+		</plugins>
+	</build>	
 </project>
